@@ -11,7 +11,7 @@ rundeck-job-proxy$ bin/rundeck-job-proxy.sh config.json
 
 Calling the server with a URL parameter **job** will reroute to `<BACKEND_URL>/api/<VERSION>/executions/<JOB>`
 
-For configuration options, see [Configuration](#Configuration).
+For configuration options, see [Configuration](#configuration).
 
 To create a system startup script use [pm2](http://pm2.keymetrics.io/). Start the server and run `pm2 startup`
 
