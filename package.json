@@ -1,6 +1,6 @@
 {
   "name": "rundeck-job-proxy",
-  "description": "",
+  "description": "Proxy server for Rundeck job executions. Converts the request's JSON payload to job arguments",
   "author": {
     "name": "The National Library of Finland"
   },
