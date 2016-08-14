@@ -1,0 +1,48 @@
+{
+  "name": "rundeck-job-proxy",
+  "description": "",
+  "author": {
+    "name": "The National Library of Finland"
+  },
+  "keywords": [
+    "rundeck",
+    "devops",
+    "proxy",
+    "http",
+    "gitlab",
+    "github",
+    "cd",
+    "ci",
+    "integration",
+    "deployment",
+    "delivery"
+  ],
+  "homepage": "https://github.com/natlibfi/rundeck-job-proxy",
+  "bugs": {
+    "url": "https://github.com/natlibfi/rundeck-job-proxy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:natlibfi/rundeck-job-proxy.git"
+  },
+  "license": " AGPL-3.0+",
+  "version": "1.0.0",
+  "main": "./lib/main",
+  "bin": ["./bin/rundeck-job-proxy"],
+  "scripts": {
+    "lint": "jshint .",
+    "test": "istanbul cover _mocha",
+    "cover": "npm run test && istanbul check-coverage",
+    "check": "npm run lint && npm run cover",
+    "travisci": "npm run check",
+    "publish-to-npm": "npm install && npm run check && npm publish"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jshint": "^2.9.2",
+    "mocha": "^3.0.2",
+    "mock-fs": "^3.11.0",
+    "istanbul": "^0.4.4",
+    "codeclimate-test-reporter": "^0.3.3"
+  }
+}
