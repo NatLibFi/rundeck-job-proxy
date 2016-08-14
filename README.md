@@ -1,6 +1,6 @@
 # Rundeck job proxy [![Build Status](https://travis-ci.org/NatLibFi/rundeck-job-proxy.svg)](https://travis-ci.org/NatLibFi/rundeck-job-proxy) [![Test Coverage](https://codeclimate.com/github/NatLibFi/rundeck-job-proxy/badges/coverage.svg)](https://codeclimate.com/github/NatLibFi/rundeck-job-proxy/coverage)
 
-Proxy server for Rundeck job executions. Converts the request's JSON payload to job arguments (E.g. Gitlab & Github).
+Proxy server for Rundeck job executions. Converts the request's JSON payload to job arguments (e.g. Gitlab & Github).
 
 ## Usage
 
