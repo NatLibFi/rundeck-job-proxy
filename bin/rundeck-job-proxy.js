@@ -28,7 +28,9 @@
  **/
 
 if (process.argv.length < 3) {
-  console.log('USAGE: rundeck-job-proxy <CONFIGURATION_FILE>\n\n' + "Proxy server for Rundeck job executions. Converts the request's JSON payload to job arguments\n');
+  console.log("USAGE: rundeck-job-proxy <CONFIGURATION_FILE>\n\n" + "Proxy server for Rundeck job executions. Converts the request's JSON payload to job arguments\n");
 } else {
-  require('../lib/main')(JSON.parse(process.argv[2]));
+  require('../lib/main')(JSON.parse(require('fs').readFileSync(process.argv[2], {
+    encoding: 'utf8'
+  })));
 }
