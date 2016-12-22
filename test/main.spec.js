@@ -240,7 +240,7 @@
         })
         .end(JSON.stringify({
           foo: 'bar',
-          fu: 'foo'
+          fu: 'fu'
         }));
 
     });
