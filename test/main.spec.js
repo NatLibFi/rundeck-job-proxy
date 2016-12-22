@@ -195,6 +195,56 @@
       }, 'http://localhost:1337/foo?job=foobar&authtoken=foobar');
     });
 
+    it('Should not call backend because the request was filtered out', function(done) {
+      
+      server_backend = http.createServer(function(request, response) {       
+        request
+          .on('data', function(chunk) {
+            done(new Error('Unexpected data event: '+chunk));
+          })
+          .on('error', function(error) {
+            done(new Error('Unexpected error event: '+chunk));
+          })
+          .on('end', function() {
+            done(new Error('Unexpected end event: '+chunk));
+          });
+      }).listen(1338);
+
+      server_proxy = createProxy({
+        backend: 'http://localhost:1338',
+        map: {},
+        filter: {
+          fu: 'foo'
+        }
+      });
+      
+      http.request(Object.assign(url.parse('http://localhost:1337/foo?job=foobar'), {
+        method: 'POST'
+      }))
+        .on('response', function(response) {
+
+          var body = '';
+          
+          response
+            .on('data', function(chunk) {
+              body += chunk;
+            })
+            .on('end', function() {
+              expect(response.statusCode).to.equal(400);
+              expect(body).to.equal('Payload did not pass filter');
+              done();
+            })
+            .on('error', done);
+              
+          
+        })
+        .end(JSON.stringify({
+          foo: 'bar',
+          fu: 'foo'
+        }));
+
+    });
+    
   });
 
 }());
