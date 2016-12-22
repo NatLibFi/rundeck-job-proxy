@@ -36,6 +36,7 @@ Following configuration options are available:
 - **version**: Rundeck API version to use. Defaults to _14_.
 - **backend**: Rundeck server URL. Defaults to _http://localhost:4440_.
 - **map**: A mapping of JSON payload properties to job options. Property names represents the option name. The values are arrays which represent the property hierarchy of the mapped value. Defaults to _{}_.
+- **filter**: An object representing JSON payload properties and their values. If one of these properties does not exist in the payload or has a different value the request is not passed to the backend (HTTP status code 400 is returned). Values are compared with the strict equality operators (===).
 
 ### Example configuration
 ```js
